@@ -1,0 +1,117 @@
+﻿@model ProjetoTesteRafa.Models.usuario_gerente
+
+@{
+    ViewBag.Title = "Mudar Senha";
+}
+
+
+<div class="content pb-1">
+    <div class="container-fluid">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="m-0">Usuários</h3>
+                    </div>
+                </div> <!-- /.row -->
+            </div> <!-- /.container-fluid -->
+        </div>  <!-- /.content-header -->
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.uss_codigo)
+            @Html.HiddenFor(model => model.uss_usuario)
+            @Html.HiddenFor(model => model.uss_lembrar_me)
+            @Html.HiddenFor(model => model.uss_nome)
+            @Html.HiddenFor(model => model.uss_sobrenome)
+            @Html.HiddenFor(model => model.uss_endereco)
+            @Html.HiddenFor(model => model.uss_numero)
+            @Html.HiddenFor(model => model.uss_complemento)
+            @Html.HiddenFor(model => model.uss_bairro)
+            @Html.HiddenFor(model => model.uss_cidade)
+            @Html.HiddenFor(model => model.uss_estado)
+            @Html.HiddenFor(model => model.uss_cep)
+            @Html.HiddenFor(model => model.uss_telefone)
+            @Html.HiddenFor(model => model.uss_email)
+            @Html.HiddenFor(model => model.uss_ativo)
+            @Html.HiddenFor(model => model.uss_perfil)
+
+            <div class="container-fluid">
+                <div class="card card-cyan">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Digite a nova senha para o usuário </h4>
+                            </div>
+                        </div>
+                    </div> <!-- ./card-header -->
+                    <!-- form -->
+                    <form role="form">
+                        <div class="card-body bg-gray-light">
+
+                            <div class="row  justify-content-center">
+                                <div class="form-group ">
+                                    @Html.LabelFor(model => model.uss_nome, htmlAttributes: new { @class = "control-label col-md-12" })
+                                    <div class="col-md-12">
+                                        @Html.EditorFor(model => model.uss_nome, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                        @Html.ValidationMessageFor(model => model.uss_nome, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div> <!-- ./row -->
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(model => model.uss_senha, htmlAttributes: new { @class = "control-label col-md-12" })
+                                    <div>
+                                        @Html.EditorFor(model => model.uss_senha, new { htmlAttributes = new { @class = "form-control", required = "required", title = "Informe seu primeiro nome" } })
+                                        @Html.ValidationMessageFor(model => model.uss_senha, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6 py-1">
+                                    <h6 class="control-label col-md-12" style="font-weight: bold">Confirme a senha</h6>
+                                    <div>
+                                        <input data-val="true" data-val-equalto="A senha e a senha de confirmação não correspondem." data-val-equalto-other="*.uss_senha"
+                                               data-val-required="Informe a senha de confirmação" id="ConfirmPassword" name="ConfirmPassword" type="password"
+                                               class="form-control" />
+                                        <span class="field-validation-valid error text-danger" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                            </div> <!-- ./row -->
+                        </div> <!-- ./card-body -->
+
+
+                        <div class="card-footer" style="background-color: #d3dbde; border-bottom-right-radius:inherit; border-bottom-left-radius:inherit;">
+                            <div class="row justify-content-center">
+                                <div>
+                                    <!-- sem essa div vazia, os ítens não estavam ficando no centro da tela -->
+                                    <div class="col-md-offset-2 col-md-12">
+                                        <input type="submit" value="Atualizar" class="btn btn-success mx-3 my-1" />
+                                        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger" })
+                                    </div>
+                                </div>
+                            </div><!-- ./row -->
+                        </div>
+                    </form>
+                </div> <!-- ./card -->
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+

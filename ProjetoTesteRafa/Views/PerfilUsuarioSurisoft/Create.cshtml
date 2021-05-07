@@ -1,0 +1,690 @@
+﻿@model ProjetoTesteRafa.Models.perfis_usuario
+
+@{
+    ViewBag.Title = "Criar";
+}
+
+
+<div class="content pb-1">
+    <div class="container-fluid">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="m-0">Perfis de Acesso Gerente</h3>
+                    </div>
+                </div> <!-- /.row -->
+            </div> <!-- /.container-fluid -->
+        </div>  <!-- /.content-header -->
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @*@Html.HiddenFor(model => model.pus_codigo)*@
+
+            <div class="container-fluid">
+                <div class="card card-cyan">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4>Crie o perfil de acesso para o usuário selecionado</h4>
+                            </div>
+                        </div>
+                    </div> <!-- ./card-header -->
+                    <!-- form -->
+                    <form role="form">
+                        <div class="card-body bg-gray-light">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.pus_usuariogerente, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.DropDownList("pus_usuariogerente", null, htmlAttributes: new { @class = "form-control col-md-12" })
+                                            @Html.ValidationMessageFor(model => model.pus_usuariogerente, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- ./row -->
+                            <!-- Row Perfil e Ativo -->
+                            <div class="row">
+                            </div> <!-- ./row -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Acessos ao cadastro de usuários gerente</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_usuariogerente_index)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_usuariogerente_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_usuariogerente_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_usuariogerente_details)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_usuariogerente_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_usuariogerente_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_usuariogerente_create)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_usuariogerente_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_usuariogerente_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_usuariogerente_edit)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_usuariogerente_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_usuariogerente_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_usuariogerente_delete)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_usuariogerente_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_usuariogerente_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_usuariogerente_mudarsenha)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_usuariogerente_mudarsenha, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_usuariogerente_mudarsenha, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Acesso a criação de perfis para a gerente</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_perfilusuariogerente_index)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_perfilusuariogerente_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_perfilusuariogerente_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_perfilusuariogerente_details)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_perfilusuariogerente_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_perfilusuariogerente_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_perfilusuariogerente_create)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_perfilusuariogerente_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_perfilusuariogerente_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_perfilusuariogerente_edit)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_perfilusuariogerente_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_perfilusuariogerente_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_perfilusuariogerente_delete)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_perfilusuariogerente_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_perfilusuariogerente_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Clientes</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_clienteempresa_index)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_clienteempresa_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_clienteempresa_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_clienteempresa_details)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_clienteempresa_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_clienteempresa_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresa_create)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresa_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresa_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresa_edit)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresa_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresa_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresa_delete)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresa_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresa_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Empresas</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_clienteempresaunidade_index)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_clienteempresaunidade_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_clienteempresaunidade_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_clienteempresaunidade_details)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_clienteempresaunidade_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_clienteempresaunidade_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresaunidade_create)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresaunidade_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresaunidade_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresaunidade_edit)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresaunidade_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresaunidade_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresaunidade_delete)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresaunidade_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresaunidade_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Usuários</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_clienteempresausuario_index)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_clienteempresausuario_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_clienteempresausuario_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_clienteempresausuario_details)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_clienteempresausuario_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_clienteempresausuario_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresausuario_create)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresausuario_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresausuario_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresausuario_edit)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresausuario_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresausuario_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresausuario_delete)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresausuario_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresausuario_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_clienteempresausuario_mudarsenha)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_clienteempresausuario_mudarsenha, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_clienteempresausuario_mudarsenha, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Perfil usuário / empresa</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_perfilusuarioempresa_index)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_perfilusuarioempresa_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_perfilusuarioempresa_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_perfilusuarioempresa_details)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_perfilusuarioempresa_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_perfilusuarioempresa_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_perfilusuarioempresa_create)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_perfilusuarioempresa_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_perfilusuarioempresa_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_perfilusuarioempresa_edit)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_perfilusuarioempresa_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_perfilusuarioempresa_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_perfilusuarioempresa_delete)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_perfilusuarioempresa_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_perfilusuarioempresa_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Acessos do usuário</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_perfilusuarioacesso_index)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_perfilusuarioacesso_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_perfilusuarioacesso_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_ler_perfilusuarioacesso_details)
+                                                    @Html.ValidationMessageFor(model => model.pus_ler_perfilusuarioacesso_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_ler_perfilusuarioacesso_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_perfilusuarioacesso_create)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_perfilusuarioacesso_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_perfilusuarioacesso_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_perfilusuarioacesso_edit)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_perfilusuarioacesso_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_perfilusuarioacesso_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pus_lerescrever_perfilusuarioacesso_delete)
+                                                    @Html.ValidationMessageFor(model => model.pus_lerescrever_perfilusuarioacesso_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pus_lerescrever_perfilusuarioacesso_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                        </div> <!-- ./card-body -->
+                        <div class="card-footer" style="background-color: #d3dbde; border-bottom-right-radius:inherit; border-bottom-left-radius:inherit;">
+                            <div class="row justify-content-center">
+                                <div>
+                                    <!-- sem essa div vazia, os ítens não estavam ficando no centro da tela -->
+                                    <div class="col-md-offset-2 col-md-12">
+                                        <input type="submit" value="Criar" class="btn btn-primary mx-3 my-1" />
+                                        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger" })
+                                    </div>
+                                </div>
+                            </div><!-- ./row -->
+                        </div> <!-- ./card-footer -->
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+

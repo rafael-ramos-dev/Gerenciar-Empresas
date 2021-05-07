@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3AC708E5-B89D-4CA7-9792-A017BB1B8B8F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjetoTesteRafa</RootNamespace>
+    <AssemblyName>ProjetoTesteRafa</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44319</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClienteEmpresaController.cs" />
+    <Compile Include="Controllers\ClienteEmpresaUsuarioController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\PerfilUsuarioAcessoController.cs" />
+    <Compile Include="Controllers\PerfilUsuarioGerenteController.cs" />
+    <Compile Include="Controllers\UsuarioGerenteController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105070159012_Initial.cs" />
+    <Compile Include="Migrations\202105070159012_Initial.Designer.cs">
+      <DependentUpon>202105070159012_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\cliente_empresa.cs" />
+    <Compile Include="Models\cliente_empresa_usuario.cs" />
+    <Compile Include="Models\Comum\Estado.cs" />
+    <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\perfil_usuario_acesso.cs" />
+    <Compile Include="Models\perfis_usuario.cs" />
+    <Compile Include="Models\usuario_gerente.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\ProjetoTesteRafa.dll" />
+    <Content Include="bin\ProjetoTesteRafa.pdb" />
+    <Content Include="bin\pt-br\System.Web.Helpers.resources.dll" />
+    <Content Include="bin\pt-br\System.Web.Mvc.resources.dll" />
+    <Content Include="bin\pt-br\System.Web.Optimization.resources.dll" />
+    <Content Include="bin\pt-br\System.Web.Razor.resources.dll" />
+    <Content Include="bin\pt-br\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="bin\pt-br\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="bin\pt-br\System.Web.WebPages.resources.dll" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\System.Buffers.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Memory.dll" />
+    <Content Include="bin\roslyn\System.Numerics.Vectors.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\AdminLTE\adminlte.css" />
+    <Content Include="Content\AdminLTE\adminlte.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\AdminLTELogo.png" />
+    <Content Include="Content\Images\user1-128x128.jpg" />
+    <Content Include="Content\Images\user2-160x160.jpg" />
+    <Content Include="Content\Images\user3-128x128.jpg" />
+    <Content Include="Content\Images\user8-128x128.jpg" />
+    <Content Include="Content\tether\tether-theme-arrows-dark.css" />
+    <Content Include="Content\tether\tether-theme-arrows-dark.min.css" />
+    <Content Include="Content\tether\tether-theme-arrows.css" />
+    <Content Include="Content\tether\tether-theme-arrows.min.css" />
+    <Content Include="Content\tether\tether-theme-basic.css" />
+    <Content Include="Content\tether\tether-theme-basic.min.css" />
+    <Content Include="Content\tether\tether.css" />
+    <Content Include="Content\tether\tether.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="obj\bin\Antlr3.Runtime.dll" />
+    <Content Include="obj\bin\Antlr3.Runtime.pdb" />
+    <Content Include="obj\bin\EntityFramework.dll" />
+    <Content Include="obj\bin\EntityFramework.SqlServer.dll" />
+    <Content Include="obj\bin\EntityFramework.SqlServer.xml" />
+    <Content Include="obj\bin\EntityFramework.xml" />
+    <Content Include="obj\bin\Microsoft.AspNetCore.Cryptography.Internal.dll" />
+    <Content Include="obj\bin\Microsoft.AspNetCore.Cryptography.Internal.xml" />
+    <Content Include="obj\bin\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" />
+    <Content Include="obj\bin\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml" />
+    <Content Include="obj\bin\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="obj\bin\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <Content Include="obj\bin\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <Content Include="obj\bin\Microsoft.Extensions.Configuration.Abstractions.xml" />
+    <Content Include="obj\bin\Microsoft.Extensions.Configuration.Binder.dll" />
+    <Content Include="obj\bin\Microsoft.Extensions.Configuration.Binder.xml" />
+    <Content Include="obj\bin\Microsoft.Extensions.Configuration.dll" />
+    <Content Include="obj\bin\Microsoft.Extensions.Configuration.xml" />
+    <Content Include="obj\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="obj\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
+    <Content Include="obj\bin\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="obj\bin\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="obj\bin\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="obj\bin\Microsoft.Extensions.Logging.Abstractions.xml" />
+    <Content Include="obj\bin\Microsoft.Extensions.Logging.dll" />
+    <Content Include="obj\bin\Microsoft.Extensions.Logging.xml" />
+    <Content Include="obj\bin\Microsoft.Extensions.Options.dll" />
+    <Content Include="obj\bin\Microsoft.Extensions.Options.xml" />
+    <Content Include="obj\bin\Microsoft.Extensions.Primitives.dll" />
+    <Content Include="obj\bin\Microsoft.Extensions.Primitives.xml" />
+    <Content Include="obj\bin\Microsoft.Owin.dll" />
+    <Content Include="obj\bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="obj\bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.dll" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.Google.xml" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.Twitter.xml" />
+    <Content Include="obj\bin\Microsoft.Owin.Security.xml" />
+    <Content Include="obj\bin\Microsoft.Owin.xml" />
+    <Content Include="obj\bin\Microsoft.TestPlatform.AdapterUtilities.dll" />
+    <Content Include="obj\bin\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <Content Include="obj\bin\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="obj\bin\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <Content Include="obj\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="obj\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="obj\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="obj\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="obj\bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="obj\bin\Newtonsoft.Json.dll" />
+    <Content Include="obj\bin\Newtonsoft.Json.xml" />
+    <Content Include="obj\bin\Owin.dll" />
+    <Content Include="obj\bin\pt-br\Microsoft.Owin.Security.Google.resources.dll" />
+    <Content Include="obj\bin\pt-br\Microsoft.TestPlatform.AdapterUtilities.resources.dll" />
+    <Content Include="obj\bin\pt-br\Microsoft.TestPlatform.CoreUtilities.resources.dll" />
+    <Content Include="obj\bin\pt-br\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="obj\bin\pt-br\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="obj\bin\pt-br\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" />
+    <Content Include="obj\bin\pt-br\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="obj\bin\pt-br\System.Web.Helpers.resources.dll" />
+    <Content Include="obj\bin\pt-br\System.Web.Mvc.resources.dll" />
+    <Content Include="obj\bin\pt-br\System.Web.Optimization.resources.dll" />
+    <Content Include="obj\bin\pt-br\System.Web.Razor.resources.dll" />
+    <Content Include="obj\bin\pt-br\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="obj\bin\pt-br\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="obj\bin\pt-br\System.Web.WebPages.resources.dll" />
+    <Content Include="obj\bin\Rafa.dll" />
+    <Content Include="obj\bin\Rafa.pdb" />
+    <Content Include="obj\bin\SIT.dll" />
+    <Content Include="obj\bin\SIT.pdb" />
+    <Content Include="obj\bin\System.Buffers.dll" />
+    <Content Include="obj\bin\System.Buffers.xml" />
+    <Content Include="obj\bin\System.ComponentModel.Annotations.dll" />
+    <Content Include="obj\bin\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="obj\bin\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="obj\bin\System.Memory.dll" />
+    <Content Include="obj\bin\System.Memory.xml" />
+    <Content Include="obj\bin\System.Numerics.Vectors.dll" />
+    <Content Include="obj\bin\System.Numerics.Vectors.xml" />
+    <Content Include="obj\bin\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="obj\bin\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="obj\bin\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="obj\bin\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="obj\bin\System.ValueTuple.dll" />
+    <Content Include="obj\bin\System.ValueTuple.xml" />
+    <Content Include="obj\bin\System.Web.Helpers.dll" />
+    <Content Include="obj\bin\System.Web.Helpers.xml" />
+    <Content Include="obj\bin\System.Web.Mvc.dll" />
+    <Content Include="obj\bin\System.Web.Mvc.xml" />
+    <Content Include="obj\bin\System.Web.Optimization.dll" />
+    <Content Include="obj\bin\System.Web.Optimization.xml" />
+    <Content Include="obj\bin\System.Web.Razor.dll" />
+    <Content Include="obj\bin\System.Web.Razor.xml" />
+    <Content Include="obj\bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="obj\bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="obj\bin\System.Web.WebPages.dll" />
+    <Content Include="obj\bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="obj\bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="obj\bin\System.Web.WebPages.xml" />
+    <Content Include="obj\bin\WebGrease.dll" />
+    <Content Include="obj\Debug\ProjetoTesteRafa.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ProjetoTesteRafa.dll" />
+    <Content Include="obj\Debug\ProjetoTesteRafa.pdb" />
+    <Content Include="obj\Debug\SIT.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\SIT.dll" />
+    <Content Include="obj\Debug\SIT.pdb" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Plugins\fontawesome-free\css\all.css" />
+    <Content Include="Plugins\fontawesome-free\css\all.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\brands.css" />
+    <Content Include="Plugins\fontawesome-free\css\brands.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\fontawesome.css" />
+    <Content Include="Plugins\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\regular.css" />
+    <Content Include="Plugins\fontawesome-free\css\regular.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\solid.css" />
+    <Content Include="Plugins\fontawesome-free\css\solid.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="Plugins\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\v4-shims.css" />
+    <Content Include="Plugins\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="Scripts\AdminLTE\adminlte.js" />
+    <Content Include="Scripts\AdminLTE\adminlte.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="bin\ProjetoTesteRafa.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\bin\Rafa.dll.config" />
+    <Content Include="obj\bin\SIT.dll.config" />
+    <Content Include="obj\Debug\build.force" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\ProjetoTesteRafa.csproj.CopyComplete" />
+    <Content Include="obj\Debug\ProjetoTesteRafa.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\ProjetoTesteRafa.csprojAssemblyReference.cache" />
+    <Content Include="obj\Debug\Tsc.out" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="obj\Debug\SIT.csproj.CopyComplete" />
+    <Content Include="obj\Debug\SIT.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\SIT.csproj.GenerateResource.cache" />
+    <Content Include="obj\Debug\SIT.csprojAssemblyReference.cache" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\tether.js" />
+    <Content Include="Scripts\tether.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="_Banco_Dados\ProjetoTesteRafa.bak" />
+    <Content Include="Views\ClienteEmpresaUsuario\Create.cshtml" />
+    <Content Include="Views\ClienteEmpresaUsuario\Delete.cshtml" />
+    <Content Include="Views\ClienteEmpresaUsuario\Details.cshtml" />
+    <Content Include="Views\ClienteEmpresaUsuario\Edit.cshtml" />
+    <Content Include="Views\ClienteEmpresaUsuario\Index.cshtml" />
+    <Content Include="Views\ClienteEmpresaUsuario\MudarSenha.cshtml" />
+    <Content Include="Views\ClienteEmpresa\Create.cshtml" />
+    <Content Include="Views\ClienteEmpresa\Delete.cshtml" />
+    <Content Include="Views\ClienteEmpresa\Details.cshtml" />
+    <Content Include="Views\ClienteEmpresa\Edit.cshtml" />
+    <Content Include="Views\ClienteEmpresa\Index.cshtml" />
+    <Content Include="Views\Manager\Login.cshtml" />
+    <Content Include="Views\Manager\Registrar.cshtml" />
+    <Content Include="Views\PerfilUsuarioAcesso\Create.cshtml" />
+    <Content Include="Views\PerfilUsuarioAcesso\Delete.cshtml" />
+    <Content Include="Views\PerfilUsuarioAcesso\Details.cshtml" />
+    <Content Include="Views\PerfilUsuarioAcesso\Edit.cshtml" />
+    <Content Include="Views\PerfilUsuarioAcesso\Index.cshtml" />
+    <Content Include="Views\PerfilUsuarioSurisoft\Create.cshtml" />
+    <Content Include="Views\PerfilUsuarioSurisoft\Delete.cshtml" />
+    <Content Include="Views\PerfilUsuarioSurisoft\Details.cshtml" />
+    <Content Include="Views\PerfilUsuarioSurisoft\Edit.cshtml" />
+    <Content Include="Views\PerfilUsuarioSurisoft\Index.cshtml" />
+    <Content Include="Views\UsuarioGerente\Create.cshtml" />
+    <Content Include="Views\UsuarioGerente\Delete.cshtml" />
+    <Content Include="Views\UsuarioGerente\Details.cshtml" />
+    <Content Include="Views\UsuarioGerente\Edit.cshtml" />
+    <Content Include="Views\UsuarioGerente\Index.cshtml" />
+    <Content Include="Views\UsuarioGerente\Login.cshtml" />
+    <Content Include="Views\UsuarioGerente\MudarSenha.cshtml" />
+    <Content Include="Views\Shared\_LimiteExcedido.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Shared\_OutraEmpresa.cshtml" />
+    <Content Include="Views\Shared\_SemAutorizacao.cshtml" />
+    <Content Include="Views\Shared\_SideBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105070159012_Initial.resx">
+      <DependentUpon>202105070159012_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\SIT.Docs.Migrations_backup.202103041956525_AddClienteSurisoftTable.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Docs.Migrations_backup.202103051722497_AddInsEstadual.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Docs.Migrations_backup.202103081719484_CorrectAndAddTwoFieldsToTable.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Docs.Migrations_backup.202103082013499_AddTableUsuarioSurisoft.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Docs.Migrations_backup.202103092005074_CorrectUsuarioSurisoftAndAddUsuarioSurisoftManageTable.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.AddColumnAtivoToEmpresaEUnidadeTables.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.AddColumnsToPerfilUsuario.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.AddEmpresaEUnidadeEUsuario.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.AddPerfilTable.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.AddPerfilUsuarioEmpresa.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.AddQntUnidadeEUsuarioToClienteEmpresa.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.AddRelationalDataPerfilUsuario.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.AddTablePerfilUsuarioAcesso.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.DropPerfilUsuarioTable.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.InitialCreate.resources" />
+    <EmbeddedResource Include="obj\Debug\SIT.Migrations.RemoveUsuarioSurisoftFromPerfilAcessoUsuarioTable.resources" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54179</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44319/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

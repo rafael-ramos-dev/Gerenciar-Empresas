@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="content">
+
+    @if (Session["Empresa"].ToString() == "0")
+    {
+        <h1> Ambiente Gerencial </h1>
+    }
+    else
+    {
+        <h1> Ambiente Cliente </h1>
+    }
+    
+</div>
+<!-- /.content -->

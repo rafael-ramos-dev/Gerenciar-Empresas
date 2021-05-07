@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ProjetoTesteRafa.Models.usuario_gerente>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@if (@Session["Empresa"].ToString() == "0")
+{
+    <div class="content">
+        <div class="container-fluid">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="m-0">Usuários gerente</h3>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            @Html.ActionLink("Criar Novo", "Create", "UsuarioGerente", null, new { @class = "btn btn-primary" })
+                        </div>
+                    </div> <!-- /.row -->
+                </div> <!-- /.container-fluid -->
+            </div>  <!-- /.content-header -->
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="card mx-2">
+                        @*<div class="card-header">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div class="card-body table-responsive">
+                            <table class="table-hover mx-auto table-geral" style="min-width: 770px;">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.uss_nome)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.uss_sobrenome)
+                                        </th>
+                                        <th style="width: 150px;">
+                                            @Html.DisplayNameFor(model => model.uss_telefone)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.uss_email)
+                                        </th>
+                                        @*<th>
+                                            @Html.DisplayNameFor(model => model.uss_perfil)
+                                        </th>*@
+                                        <th style="width: 170px;"></th>
+                                    </tr>
+                                </thead>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tbody style="border-bottom: 5px solid #D6EAF8;">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.uss_nome)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.uss_sobrenome)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.uss_telefone)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.uss_email)
+                                            </td>
+                                            @*<td>
+                                                @Html.DisplayFor(modelItem => item.uss_perfil)
+                                            </td>*@
+                                            <td>
+                                                @Html.ActionLink(" ", "Edit", new { id = item.uss_codigo }, new { @class = "btn btn-success  fas fa-edit", title = "Editar" })
+                                                @Html.ActionLink(" ", "Details", new { id = item.uss_codigo }, new { @class = "btn btn-info fas fa-list", title = "Detalhes" })
+                                                @*@Html.ActionLink(" ", "MudarSenha", "UsuarioGerente", new { id = item.uss_codigo }, new { @class = "btn btn-danger fas fa-edit", title = "Mudar Senha" })*@
+                                                <div class="tooltip">
+                                                    "teste"
+                                                    <span class="tooltiptext">Tooltip text</span>
+                                                </div>
+                                                @* @Html.ActionLink("Apagar", "Delete", new { id = item.cls_codigo })*@
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+
+                            </table>
+                        </div>
+                    </div> <!-- Criar Card -->
+                </div> <!-- ./row -->
+            </div> <!-- ./container -->
+        </div>
+    </div>
+}
+else
+{
+    <h1> VOCÊ NÃO TEM PERMISSÃO PARA UTILIZAR ESSA FUNÇÃO </h1>
+}
+

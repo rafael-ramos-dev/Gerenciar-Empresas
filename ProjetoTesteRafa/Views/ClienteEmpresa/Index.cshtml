@@ -1,0 +1,129 @@
+﻿@model IEnumerable<ProjetoTesteRafa.Models.cliente_empresa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container-fluid">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="m-0">Clientes</h3>
+                </div>
+                <div class="col-sm-6 text-right">
+                    @Html.ActionLink("Criar Novo", "Create", "ClienteEmpresa", null, new { @class = "btn btn-primary" })
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container-fluid -->
+    </div>  <!-- /.content-header -->
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="card mx-2">
+                    @*<div class="card-header">
+                            <div class="container-fluid">
+                                <div class="row">
+
+                                </div>
+                            </div>
+                        </div>*@
+                    <div class="card-body table-responsive">
+                        <table class="table-hover mx-auto table-geral" style="min-width: 770px;">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.cle_razaosocial_principal)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.cle_nomefantasia_principal)
+                                    </th>
+                                    <th style="width: 150px;">
+                                        @Html.DisplayNameFor(model => model.cle_cnpj_principal)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.cle_telefone_principal)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.cle_nome_responsavel)
+                                    </th>
+                                    <th style="width: 170px;"></th>
+                                </tr>
+                            </thead>
+
+
+                            @if (@Session["Empresa"].ToString() == "0")
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tbody style="border-bottom: 5px solid #D6EAF8;">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_razaosocial_principal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_nomefantasia_principal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_cnpj_principal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_telefone_principal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_nome_responsavel)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink(" ", "Edit", new { id = item.cle_codigo }, new { @class = "btn btn-success  fas fa-edit", title = "Editar" })
+                                                @Html.ActionLink(" ", "Details", new { id = item.cle_codigo }, new { @class = "btn btn-info fas fa-list", title = "Detalhes" })
+                                                @*@Html.ActionLink(" ", "MudarSenha", "Usuariogerente", new { id = item.cle_codigo }, new { @class = "btn btn-danger fas fa-edit", title = "Mudar Senha" })*@
+                                                <div class="tooltip">
+                                                    "teste"
+                                                    <span class="tooltiptext">Tooltip text</span>
+                                                </div>
+                                                @* @Html.ActionLink("Apagar", "Delete", new { id = item.cls_codigo })*@
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+                            }
+                            else
+                            {
+                                foreach (var item in Model.Where(m => m.cle_codigo.ToString().Equals(Session["Empresa"].ToString())))
+                                {
+                                    <tbody style="border-bottom: 5px solid #D6EAF8;">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_razaosocial_principal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_nomefantasia_principal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_cnpj_principal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_telefone_principal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cle_nome_responsavel)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink(" ", "Edit", new { id = item.cle_codigo }, new { @class = "btn btn-success  fas fa-edit", title = "Editar" })
+                                                @Html.ActionLink(" ", "Details", new { id = item.cle_codigo }, new { @class = "btn btn-info fas fa-list", title = "Detalhes" })
+                                                @*@Html.ActionLink(" ", "MudarSenha", "Usuariogerente", new { id = item.cle_codigo }, new { @class = "btn btn-danger fas fa-edit", title = "Mudar Senha" })*@
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+                            }
+
+                        </table>
+                    </div>
+                </div> <!-- Criar Card -->
+            </div> <!-- ./row -->
+        </div> <!-- ./container -->
+    </div> <!-- ./content -->
+</div>

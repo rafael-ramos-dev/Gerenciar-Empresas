@@ -1,0 +1,435 @@
+﻿@model ProjetoTesteRafa.Models.perfil_usuario_acesso
+
+@{
+    ViewBag.Title = "Apagar";
+}
+
+
+<div class="content pb-1">
+    <div class="container-fluid">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        @if (Session["Empresa"].ToString() == "0")
+                        {
+                            <h3 class="m-0">Perfil de Acesso do cliente</h3>
+                        }
+                        else
+                        {
+                            <h3 class="m-0">Perfil de Acesso</h3>
+                        }
+                    </div>
+                </div> <!-- /.row -->
+            </div> <!-- /.container-fluid -->
+        </div>  <!-- /.content-header -->
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.pua_codigo)
+
+            <div class="container-fluid">
+                <div class="card card-cyan">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4>Você tem certeza que deseja excluir o seguinte perfil de acesso?</h4>
+                            </div>
+                        </div>
+                    </div> <!-- ./card-header -->
+                    <!-- form -->
+                    <form role="form">
+                        <div class="card-body bg-gray-light">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.pua_usuariocliente, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.DropDownList("pua_usuariocliente", null, htmlAttributes: new { @class = "form-control col-md-12", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.pua_usuariocliente, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Empresas</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_ler_clienteempresaunidade_index, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_ler_clienteempresaunidade_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_ler_clienteempresaunidade_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_ler_clienteempresaunidade_details, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_ler_clienteempresaunidade_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_ler_clienteempresaunidade_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_clienteempresaunidade_create, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_clienteempresaunidade_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_clienteempresaunidade_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_clienteempresaunidade_edit, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_clienteempresaunidade_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_clienteempresaunidade_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_clienteempresaunidade_delete, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_clienteempresaunidade_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_clienteempresaunidade_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Usuários</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_ler_clienteempresausuario_index, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_ler_clienteempresausuario_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_ler_clienteempresausuario_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_ler_clienteempresausuario_details, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_ler_clienteempresausuario_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_ler_clienteempresausuario_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_clienteempresausuario_create, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_clienteempresausuario_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_clienteempresausuario_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_clienteempresausuario_edit, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_clienteempresausuario_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_clienteempresausuario_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_clienteempresausuario_delete, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_clienteempresausuario_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_clienteempresausuario_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_clienteempresausuario_mudarsenha, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_clienteempresausuario_mudarsenha, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_clienteempresausuario_mudarsenha, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Perfil usuário / empresa</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_ler_perfilusuarioempresa_index, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_ler_perfilusuarioempresa_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_ler_perfilusuarioempresa_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_ler_perfilusuarioempresa_details, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_ler_perfilusuarioempresa_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_ler_perfilusuarioempresa_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_perfilusuarioempresa_create, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_perfilusuarioempresa_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_perfilusuarioempresa_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_perfilusuarioempresa_edit, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_perfilusuarioempresa_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_perfilusuarioempresa_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_perfilusuarioempresa_delete, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_perfilusuarioempresa_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_perfilusuarioempresa_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+                            <!-- Traço no meio da tela separando o principal do responsável -->
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="separator" style="color: #8b8fa7; font-style: italic;">Acessos do usuário</div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row CNPJ Cobrança, Razão Social Cobrança -->
+                            <div class="col-md-12 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_ler_perfilusuarioacesso_index, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_ler_perfilusuarioacesso_index, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_ler_perfilusuarioacesso_index, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_ler_perfilusuarioacesso_details, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_ler_perfilusuarioacesso_details, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_ler_perfilusuarioacesso_details, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_perfilusuarioacesso_create, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_perfilusuarioacesso_create, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_perfilusuarioacesso_create, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-1">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_perfilusuarioacesso_edit, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_perfilusuarioacesso_edit, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_perfilusuarioacesso_edit, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-0 ml-2">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.pua_lerescrever_perfilusuarioacesso_delete, new { htmlAttributes = new { @disabled = "disabled" } })
+                                                    @Html.ValidationMessageFor(model => model.pua_lerescrever_perfilusuarioacesso_delete, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 text-left">
+                                                @Html.LabelFor(model => model.pua_lerescrever_perfilusuarioacesso_delete, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- ./col -->
+                            </div><!-- ./col -->
+
+
+                        </div><!-- ./card-body -->
+                        <div class="card-footer" style="background-color: #d3dbde; border-bottom-right-radius:inherit; border-bottom-left-radius:inherit;">
+                            <div class="row justify-content-center">
+                                <div>
+                                    <!-- sem essa div vazia, os ítens não estavam ficando no centro da tela -->
+                                    <div class="Form-actions col-md-offset-2 col-md-12 ">
+                                        <input type="submit" value="Apagar" class="btn btn-danger mx-3 my-1" />
+                                        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-warning" })
+                                    </div>
+                                    
+                                </div>
+                            </div><!-- ./row -->
+                        </div> <!-- ./card-footer -->
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

@@ -1,0 +1,23 @@
+﻿
+    <ul class="nav navbar-nav navbar-right pr-2 nav-link">
+        <li class="px-2">
+            Olá
+            @Html.ActionLink(@Session["UserName"].ToString(), "Index", "Home", routeValues: null, htmlAttributes: new { @class = "", title = "Configurações" })
+            @*@User.Identity.Name*@
+            @*@ViewBag.NomeUsuario*@
+            @*@Session["UserName"]*@
+        </li>
+        <li class="px-2">
+            @* Botão de LogOff *@
+            @*<a href="javascript:document.getElementById('logoffForm').submit()">Sair</a>*@
+            @using (Html.BeginForm("LogOff", "Manager", FormMethod.Post, new { id = "logoffForm" }))
+            {
+                <a href="javascript:document.getElementById('logoffForm').submit()">Sair</a>
+            }
+        </li>
+    </ul>
+
+
+
+
+

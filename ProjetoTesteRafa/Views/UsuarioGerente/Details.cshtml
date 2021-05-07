@@ -1,0 +1,200 @@
+﻿@model ProjetoTesteRafa.Models.usuario_gerente
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+
+<div class="content pb-1">
+    <div class="container-fluid">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="m-0">Usuários gerenciais</h3>
+                    </div>
+                </div> <!-- /.row -->
+            </div> <!-- /.container-fluid -->
+        </div>  <!-- /.content-header -->
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="container-fluid">
+                <div class="card card-cyan">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4>Verifique os dados do usuário cadastrado</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="row">
+                                    <div class="col-md-10 text-right">
+                                        @Html.LabelFor(model => model.uss_ativo, htmlAttributes: new { @class = "control-label col-md-12" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="checkbox">
+                                            @Html.EditorFor(model => model.uss_ativo, new { htmlAttributes = new { @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_ativo, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- ./card-header -->
+                    <!-- form -->
+                    <form role="form">
+                        <div class="card-body bg-gray-light">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.uss_nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-12">
+                                    @Html.EditorFor(model => model.uss_nome, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                    @Html.ValidationMessageFor(model => model.uss_nome, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.uss_sobrenome, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-12">
+                                    @Html.EditorFor(model => model.uss_sobrenome, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                    @Html.ValidationMessageFor(model => model.uss_sobrenome, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- Row Endereço, Número, Complemento -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_endereco, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_endereco, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_endereco, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_numero, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_numero, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_numero, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_complemento, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_complemento, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_complemento, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row Cep, Bairro, Cidade, Estado -->
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_cep, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_cep, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_cep, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_bairro, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_bairro, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_bairro, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_cidade, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_cidade, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_cidade, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_estado, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_estado, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_estado, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row Telefone e E-mail -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_telefone, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_telefone, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_telefone, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_email, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_email, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- ./row -->
+                            <!-- Row Usuário e Senha -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.uss_usuario, htmlAttributes: new { @class = "control-label col-md-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.uss_usuario, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                            @Html.ValidationMessageFor(model => model.uss_usuario, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+                            </div> <!-- ./row -->
+                            <!-- Row Perfil e Ativo -->
+                            <div class="row">
+                            </div> <!-- ./row -->
+
+                        </div><!-- ./card-body -->
+                        <div class="card-footer" style="background-color: #d3dbde; border-bottom-right-radius:inherit; border-bottom-left-radius:inherit;">
+                            <div class="row justify-content-center">
+                                <div>
+                                    <!-- sem essa div vazia, os ítens não estavam ficando no centro da tela -->
+                                    <div class="col-md-offset-2 col-md-12 ">
+                                        @Html.ActionLink("Editar", "Edit", new { id = Model.uss_codigo }, new { @class = "btn btn-success mx-3 my-1" })
+                                        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger" })
+                                    </div>
+                                </div>
+                            </div><!-- ./row -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</div>

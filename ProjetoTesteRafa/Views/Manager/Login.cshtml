@@ -1,0 +1,119 @@
+﻿@model ProjetoTesteRafa.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        max-height: 100%;
+        min-width: 420px;
+
+        background-image: url("/Content/Images/gerenteLogo.jpg");
+        background-size: cover;
+        background-position: center center;
+        /*background: rgba(3,3,3,0.25);*/
+        //opacity: 0.25;
+    }
+
+    .login,
+    .image {
+        object-fit: cover;
+        min-height: 92.5vh;
+    }
+
+    .bg-image {
+        background-image: url("/Content/Images/gerenteLogo.jpg");
+        /* background-image: url('https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg');*/
+        background-size: cover;
+        background-position: center center;
+        /*background: rgba(3,3,3,0.25);
+        opacity: 0.25;*/
+    }
+</style>
+
+@using (Html.BeginForm("Login", "Manager", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="container-fluid">
+        <div class="row no-gutter justify-content-center py-5">
+            <!-- A metade com a Imagem -->
+            <!--<div class="col-md-6 d-none d-md-flex bg-image"></div>-->
+            <!-- A metade com o conteúdo -->
+            <div class="col-md-3 bg-light rounded">
+                <div class="d-flex align-items-center py-5">
+
+                    <!-- Conteúdo-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="mx-auto">
+                                <h3 class="display-4 text-center">Bem-Vindo!</h3>
+                                <p class="text-muted mb-4 text-center">Entre com seus dados para acessar.</p>
+
+                                <!-- Começo do Form para entrar com os dados -->
+                                <form>
+                                    <div class="form-group mb-3">
+                                        @Html.TextBoxFor(m => m.mng_usuario, new { @class = "form-control rounded-pill border-0 shadow-sm px-4", type = "text", placeholder = "Nome de Usuário" })
+                                        @Html.ValidationMessageFor(m => m.mng_usuario, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        @Html.PasswordFor(m => m.mng_senha, new { @class = "form-control rounded-pill border-0 shadow-sm px-4 text-primary", type = "password", placeholder = "Senha" })
+                                        @Html.ValidationMessageFor(m => m.mng_senha, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div>
+                                        @ViewBag.LoginError
+                                    </div>
+                                    <div class="custom-control custom-checkbox mb-3">
+                                        @Html.CheckBoxFor(m => m.mng_lembrar_me, new { @class = "custom-control-input", type = "checkbox" })
+                                        @Html.LabelFor(m => m.mng_lembrar_me, new { @class = "custom-control-label" })
+                                    </div>
+                                    <input type="submit" value="Entrar" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" />
+
+                                    @*<button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>*@
+                                    <div class="text-center justify-content-between mt-5">
+                                        <div>
+                                            <p class="my-0"> Não tem cadastro ainda?</p>
+                                            <p class="my-1">
+                                                @Html.ActionLink("Criar uma conta", "Registrar")
+                                            </p>
+                                        </div>
+ 
+                                    </div>
+
+
+                                </form><!-- End -->
+                            </div>
+                        </div>
+                    </div><!-- End -->
+
+                </div>
+                <div class="text-center col-lg-10 col-xl-7 mx-auto text-muted mb-4">
+                    <p>&copy; @DateTime.Now.Year - Projeto Teste Rafa</p>
+                </div>
+            </div><!-- End -->
+
+        </div>
+    </div>
+
+
+
+
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

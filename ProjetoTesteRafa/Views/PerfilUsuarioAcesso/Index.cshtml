@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ProjetoTesteRafa.Models.perfil_usuario_acesso>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container-fluid">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    @if (Session["Empresa"].ToString() == "0")
+                    {
+                        <h3 class="m-0">Perfis de Acesso do cliente</h3>
+                    }
+                    else
+                    {
+                        <h3 class="m-0">Perfis de Acesso</h3>
+                    }
+                </div>
+                <div class="col-sm-6 text-right">
+                    @Html.ActionLink("Criar Nova", "Create", "PerfilUsuarioAcesso", null, new { @class = "btn btn-primary" })
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container-fluid -->
+    </div>  <!-- /.content-header -->
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="card mx-2">
+                    @*<div class="card-header">
+                            <div class="container-fluid">
+                                <div class="row">
+
+                                </div>
+                            </div>
+                        </div>*@
+                    <div class="card-body table-responsive">
+                        <table class="table-hover mx-auto table-geral" style="min-width: 770px;">
+                            <thead>
+                                <tr>
+                                    @if (Session["Empresa"].ToString() == "0")
+                                    {
+                                        <th>
+                                            <p class="my-2">Cliente</p>
+                                        </th>
+                                    }
+                                    <th>
+                                        <p class="my-2">Empresa</p>
+                                    </th>
+                                    <th style="width: 150px;">
+                                        @Html.DisplayNameFor(model => model.cliente_empresa_usuario.cus_usuario)
+                                    </th>
+                                    <th style="width: 170px;"></th>
+                                </tr>
+                            </thead>
+
+                            @foreach (var item in Model)
+                            {
+                                <tbody style="border-bottom: 5px solid #D6EAF8;">
+                                    <tr>
+                                        @if (Session["Empresa"].ToString() == "0")
+                                        {
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cliente_empresa_usuario.cliente_empresa.cle_razaosocial_principal)
+                                            </td>
+                                        }
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cliente_empresa_usuario.cus_empresa_unidade)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cliente_empresa_usuario.cus_usuario)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink(" ", "Edit", new { id = item.pua_codigo }, new { @class = "btn btn-success  fas fa-edit", title = "Editar" })
+                                            @Html.ActionLink(" ", "Details", new { id = item.pua_codigo }, new { @class = "btn btn-info fas fa-list", title = "Detalhes" })
+                                            @Html.ActionLink(" ", "Delete", new { id = item.pua_codigo }, new { @class = "btn btn-danger fas fa-trash-alt", title = "Apagar" })
+                                            <div class="tooltip">
+                                                "teste"
+                                                <span class="tooltiptext">Tooltip text</span>
+                                            </div>
+                                            @* @Html.ActionLink("Apagar", "Delete", new { id = item.cls_codigo })*@
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            }
+                        </table>
+                    </div>
+                </div> <!-- Criar Card -->
+            </div> <!-- ./row -->
+        </div> <!-- ./container -->
+    </div> <!-- ./content -->
+</div>
+
+
+
