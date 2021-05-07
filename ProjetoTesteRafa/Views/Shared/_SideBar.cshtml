@@ -24,7 +24,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview menu-open ">
                     @if (Session["Empresa"].ToString() == "0")
                     {
                         <a href="#" class="nav-link active">
@@ -35,30 +35,36 @@
                             </p>
                         </a>
                     }
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="@Url.Action("Index", "UsuarioGerente" )" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                Usuários
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="@Url.Action("Index", "PerfilUsuarioGerente" )" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                Perfil
-                            </a>
-                        </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-md-12 px-2 pb-2 pt-1">
-                                    <div class="separator" style="color: #4b545c; font-style: italic;"></div>
-                                </div>
-                            </div> <!-- ./row -->
-                        </li>
-                    </ul>
+                <ul class="nav nav-treeview menu">
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "UsuarioGerente" )" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            Usuários
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "PerfilUsuarioGerente" )" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "ClienteEmpresa")" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            Clientes
+                        </a>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-md-12 px-2 pb-2 pt-1">
+                                <div class="separator" style="color: #4b545c; font-style: italic;"></div>
+                            </div>
+                        </div> <!-- ./row -->
+                    </li>
+                </ul>
                 </li>
 
-                <li class="nav-item has-treeview ">
+                <li class="nav-item has-treeview menu-open ">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -68,33 +74,18 @@
                     </a>
 
                     <ul class="nav nav-treeview">
-                        @if (Session["Empresa"].ToString() == "0")
+                        @*@if (Session["Empresa"].ToString() == "0")
                         {
-                            <li class="nav-item">
-                                <a href="@Url.Action("Index", "ClienteEmpresa")" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    Clientes
-                                </a>
-                            </li>
-                        }
-                        <li class="nav-item">
-                            <a href="@Url.Action("Index", "ClienteEmpresaUnidade")" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                Empresas
-                            </a>
-                        </li>
+                           
+                        }*@
+                        
                         <li class="nav-item">
                             <a href="@Url.Action("Index", "ClienteEmpresaUsuario" )" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 Usuários
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="@Url.Action("Index", "PerfilUsuarioEmpresa" )" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                Perfil Empresarial
-                            </a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a href="@Url.Action("Index", "PerfilUsuarioAcesso" )" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
